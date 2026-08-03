@@ -1,0 +1,538 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOfmx3h5ZgtZM6xBoxXXi1G",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/nitics18/goku/blob/main/python%20first%20program\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "fqdJeBzOaQAU"
+      },
+      "outputs": [],
+      "source": [
+        "article_text=\"just what is agility in the context of software engineering work? ivar jacobs\""
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import re\n",
+        "import nltk\n",
+        "from nltk.tokenize import word_tokenize"
+      ],
+      "metadata": {
+        "id": "0alQbq4ScN1e"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "article_text=article_text.lower()\n",
+        "article_text"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "id": "Ksd1FCD5beQB",
+        "outputId": "4d4072a3-5cd0-4e26-9e40-f08bcb8290f0"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'just what is agility in the context of software engineering work? ivar jacobs'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "clean_text=re.sub('[^a-zA-Z]',' ',article_text)\n",
+        "clean_text"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "id": "L7ovZpuLceu3",
+        "outputId": "1b9c2744-5fbc-4d0a-9ce9-a1d084f2cf17"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'just what is agility in the context of software engineering work  ivar jacobs'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 8
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import nltk\n",
+        "nltk.download('punkt_tab')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bX9WSwSfczPn",
+        "outputId": "703465bb-a500-4670-f4e4-e592be4bf7de"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "[nltk_data] Downloading package punkt_tab to /root/nltk_data...\n",
+            "[nltk_data]   Unzipping tokenizers/punkt_tab.zip.\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "True"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "sentence_list=nltk.sent_tokenize(article_text)\n",
+        "sentence_list"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-iorJQAyc_t5",
+        "outputId": "d2314f98-ccc3-48e9-b2b1-917e03527c0f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['just what is agility in the context of software engineering work?',\n",
+              " 'ivar jacobs']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 10
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "tokens=word_tokenize(clean_text)\n",
+        "tokens"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "HCoqK7iJdbqF",
+        "outputId": "22c7baeb-9972-4c6c-ab99-bd72bfe3b64f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['just',\n",
+              " 'what',\n",
+              " 'is',\n",
+              " 'agility',\n",
+              " 'in',\n",
+              " 'the',\n",
+              " 'context',\n",
+              " 'of',\n",
+              " 'software',\n",
+              " 'engineering',\n",
+              " 'work',\n",
+              " 'ivar',\n",
+              " 'jacobs']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nltk.download('stopwords')\n",
+        "from nltk.corpus import stopwords\n",
+        "stop_words=set(stopwords.words('english'))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "n-XJ2XuHerzP",
+        "outputId": "7f278367-bbaa-4a44-c3b7-5fae69fcb65d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "[nltk_data] Downloading package stopwords to /root/nltk_data...\n",
+            "[nltk_data]   Unzipping corpora/stopwords.zip.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "word_frequencies={}\n",
+        "for word in tokens:\n",
+        "  if word not in stop_words:\n",
+        "    if word not in word_frequencies:\n",
+        "      word_frequencies[word]=1\n",
+        "    else:\n",
+        "      word_frequencies[word]+=1\n",
+        "word_frequencies"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vE_HAF_ffauE",
+        "outputId": "8651533f-003c-4d90-b148-3bbc64fe2253"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'agility': 1,\n",
+              " 'context': 1,\n",
+              " 'software': 1,\n",
+              " 'engineering': 1,\n",
+              " 'work': 1,\n",
+              " 'ivar': 1,\n",
+              " 'jacobs': 1}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from collections import Counter\n",
+        "dictionary=Counter(word_frequencies)\n",
+        "dictionary"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "DhHtemBXgCx_",
+        "outputId": "e9e2c432-4520-478a-d3c9-d8cee54409fa"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Counter({'agility': 1,\n",
+              "         'context': 1,\n",
+              "         'software': 1,\n",
+              "         'engineering': 1,\n",
+              "         'work': 1,\n",
+              "         'ivar': 1,\n",
+              "         'jacobs': 1})"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 15
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from nltk.stem import PorterStemmer\n",
+        "from nltk.stem import LancasterStemmer"
+      ],
+      "metadata": {
+        "id": "VktSn-QfhUvi"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "porter=PorterStemmer()\n",
+        "lancaster=LancasterStemmer()\n",
+        "print(porter.stem(\"cats\"))\n",
+        "print(lancaster.stem(\"cats\"))\n",
+        "print(porter.stem(\"troubled\"))\n",
+        "print(lancaster.stem(\"troubled\"))\n",
+        "print(porter.stem(\"troubling\"))\n",
+        "print(lancaster.stem(\"troubling\"))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "WY5Y2GvNh2sV",
+        "outputId": "1cb49819-7f82-4375-a6bc-c85dc3bf8759"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "cat\n",
+            "cat\n",
+            "troubl\n",
+            "troubl\n",
+            "troubl\n",
+            "troubl\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "word_list=(\"friend\",\"friendship\",\"friends\",\"friendships\",\"stabil\",\"destabilize\")\n",
+        "print(\"{:20}{:20}{:20}\".format(\"Word\",\"Porter Stemmer\",\"lancaster Stemmer\"))\n",
+        "for word in word_list:\n",
+        "  print(\"{:20}{:20}{:20}\".format(word,porter.stem(word),lancaster.stem(word)))\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BHOus-g9nNWS",
+        "outputId": "503e92c6-a49c-47bb-b9db-f5ee7427ecea"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Word                Porter Stemmer      lancaster Stemmer   \n",
+            "friend              friend              friend              \n",
+            "friendship          friendship          friend              \n",
+            "friends             friend              friend              \n",
+            "friendships         friendship          friend              \n",
+            "stabil              stabil              stabl               \n",
+            "destabilize         destabil            dest                \n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "stem_sentence=[]\n",
+        "for word in tokens:\n",
+        "  stem_sentence.append(porter.stem(word))\n",
+        "  stem_sentence.append(\" \")\n",
+        "stem_sentence"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bctkQ6Fgn_8T",
+        "outputId": "f59438fb-826f-43d8-a9c5-78a294cfdd6e"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['just',\n",
+              " ' ',\n",
+              " 'what',\n",
+              " ' ',\n",
+              " 'is',\n",
+              " ' ',\n",
+              " 'agil',\n",
+              " ' ',\n",
+              " 'in',\n",
+              " ' ',\n",
+              " 'the',\n",
+              " ' ',\n",
+              " 'context',\n",
+              " ' ',\n",
+              " 'of',\n",
+              " ' ',\n",
+              " 'softwar',\n",
+              " ' ',\n",
+              " 'engin',\n",
+              " ' ',\n",
+              " 'work',\n",
+              " ' ',\n",
+              " 'ivar',\n",
+              " ' ',\n",
+              " 'jacob',\n",
+              " ' ']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 22
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from nltk.stem import WordNetLemmatizer\n",
+        "lemmatizer=WordNetLemmatizer()"
+      ],
+      "metadata": {
+        "id": "aGYd9ZlRojrY"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import nltk\n",
+        "nltk.download('wordnet')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "LatDPcCFo0tW",
+        "outputId": "c09cc493-1510-4ec4-dc7f-9bc92b50e541"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "[nltk_data] Downloading package wordnet to /root/nltk_data...\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "True"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 24
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def lemmatize_word(word):\n",
+        "  return lemmatizer.lemmatize(word)"
+      ],
+      "metadata": {
+        "id": "5oiQcp6Oo8zW"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "word_list=[\"word1\",\"word2\",\"word3\"]\n",
+        "print(\"{:20}{:20}\".format(\"Word\",\"Lemma\"))\n",
+        "for word in word_list:\n",
+        "  print(\"{:20}{:20}\".format(word,lemmatize_word(word)))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "gI4PhHiLpJZ8",
+        "outputId": "bac0858d-5ecc-47ed-f0ef-7841fadd53ea"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Word                Lemma               \n",
+            "word1               word1               \n",
+            "word2               word2               \n",
+            "word3               word3               \n"
+          ]
+        }
+      ]
+    }
+  ]
+}
